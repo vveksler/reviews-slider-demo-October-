@@ -1,6 +1,5 @@
 import Vue from 'vue'
 import Flickity from 'vue-flickity'
-import axios from 'axios'
 
 const review = {
   template: '#review-template',
@@ -10,7 +9,7 @@ const review = {
 }
 
 new Vue({
-  el: '#reviews',
+  el: '#reviews-slider',
   template: '#reviews-template',
   components: {
     Flickity,
@@ -38,9 +37,9 @@ new Vue({
           this.currentIndex = this.reviews.length
       })
     },
-    makeArrWithAbsoluteImages(data) {
+    makeArrWithRequiredImages(data) {
       return data.map((item) => {
-        const requiredPic = `https://webdev-api.loftschool.com/${item.photo}`
+        const requiredPic = require(`../images/content/reviews/${item.avatar}`)
         item.avatar = requiredPic
 
         return item
@@ -55,13 +54,14 @@ new Vue({
     }
   },
   created() {
-    axios
-      .get('https://webdev-api.loftschool.com/reviews/148')
-      .then((response) => {
-        console.log(response)
-        const data = response.data
-        this.reviews = this.makeArrWithAbsoluteImages(data)
-        console.log('REVIEWS ==>', this.reviews.length)
-      })
+    const data = require('../data/reviews.json')
+    this.reviews = this.makeArrWithRequiredImages(data)
+  },
+  mounted() {
+    const items = document.querySelectorAll('.reviews-slider__item')
+
+    items.forEach((item) => {
+      item.style.height = '100%'
+    })
   }
 })

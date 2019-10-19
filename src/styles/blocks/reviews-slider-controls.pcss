@@ -1,0 +1,65 @@
+.reviews-slider-controls {
+  display: flex;
+
+  .disabled {
+    opacity: 0.4;
+
+    &.reviews-slider-controls__btn {
+      &:hover {
+        border: 1px solid #ffffff;
+
+        &:before {
+          background: svg-load('arrow-down.svg', fill=$text-color) center center /
+            contain no-repeat;
+        }
+      }
+    }
+  }
+}
+
+.reviews-slider-controls__btn {
+  width: 50px;
+  height: 50px;
+  border: 1px solid #ffffff;
+  position: relative;
+  border-radius: 50%;
+  margin-right: 30px;
+  transition: 0.3s;
+
+  &:hover {
+    border: 1px solid $hover-color;
+    &:before {
+      background: svg-load('arrow-down.svg', fill=$hover-color) center center /
+        contain no-repeat;
+    }
+  }
+
+  &:last-child {
+    margin-right: 0;
+  }
+
+  &:before {
+    content: '';
+    width: 8px;
+    height: 10px;
+    display: block;
+    background: svg-load('arrow-down.svg', fill=$text-color) center center /
+      contain no-repeat;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    transition: 0.3s;
+  }
+
+  &_prev {
+    &:before {
+      transform: translate(-50%, -50%) rotate(-180deg);
+    }
+  }
+}
+
+.flickity-prev-next-button.previous,
+.flickity-prev-next-button.next {
+  display: none;
+}
