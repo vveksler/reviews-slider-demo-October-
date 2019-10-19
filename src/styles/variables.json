@@ -1,0 +1,9 @@
+{
+  "text-color": "#ffffff",
+  "bg-color": "#1b1f22",
+  "links-color": "#4b6fd7",
+  "bp-desktop-hd": "1800px",
+  "bp-desktop": "1200px",
+  "bp-tablets": "768px",
+  "bp-phones": "480px"
+}

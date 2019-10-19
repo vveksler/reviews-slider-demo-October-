@@ -1,0 +1,63 @@
+.review {
+  display: flex;
+  
+  &:before {
+    content: "";
+    display: block;
+    width: 75px;
+    height: 63px;
+    background: svg-load('quote.svg', fill=rgba($text-color, 0.05), width=100%, height=100%) center center no-repeat;
+    flex-shrink: 0;
+    margin-right: 2%;
+  }
+}
+
+.reviews-section {
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  height: 100vh;
+}
+
+.review__item {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  height: 100%;
+}
+
+.review__content {
+  margin: 0;
+  margin-bottom: 20px;
+}
+
+.review__person-info {
+  display: flex;
+  align-items: center;
+  font-style: normal;
+}
+
+.review__avatar {
+  border-radius: 50%;
+  overflow: hidden;
+  min-width: 100px;
+  width: 100px;
+  height: 100px;
+  margin-right: 20px;
+}
+
+.review__avatar-img {
+  object-fit: cover;
+  width: 100%;
+  height: 100%;
+}
+
+.review__person-desc {
+  flex: 1;
+}
+
+.review__author {
+  font-size: 18px;
+  font-weight: bold;
+  margin-bottom: 5%;
+}
