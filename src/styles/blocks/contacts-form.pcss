@@ -1,0 +1,150 @@
+.contacts-form__row {
+  margin-bottom: 38px;
+  display: flex;
+
+  &:nth-child(2) {
+    margin-bottom: 60px;
+  }
+
+  &:last-child {
+    margin-bottom: 0;
+  }
+
+  @include tablets {
+    justify-content: center;
+  }
+
+  @include phones {
+    margin-bottom: 8%;
+    flex-direction: column;
+
+    &:nth-child(2) {
+      margin-bottom: 20px;
+    }
+  }
+}
+
+.contacts-form__col {
+  position: relative;
+  flex: 1;
+  margin-right: 50px;
+  border-bottom: 1px solid currentColor;
+  padding-bottom: 14px;
+  transition: 0.3s;
+
+  &:last-child {
+    margin-right: 0;
+    padding: 0;
+  }
+
+  &:hover {
+    border-bottom: 1px solid $hover-color;
+
+    .contacts-form__icon {
+      opacity: 1;
+      fill: $hover-color;
+    }
+  }
+
+  &.error {
+    .contacts__form-error {
+      display: block;
+    }
+
+    .contacts-form__icon {
+      fill: red;
+      opacity: 1;
+    }
+  }
+
+  @include phones {
+    margin-right: 0;
+    margin-bottom: 10%;
+
+    &:last-child {
+      padding-bottom: 14px;
+    }
+  }
+}
+
+.contacts__form-error {
+  display: none;
+  position: absolute;
+  top: 100%;
+  z-index: 100;
+}
+
+.contacts-form__name {
+  margin-bottom: 20px;
+  padding-left: 42px;
+  display: block;
+  font-weight: 600;
+  color: rgba($text-color, 0.3);
+}
+
+.contacts-form__wrap {
+  display: flex;
+  align-items: center;
+
+  &_align_top {
+    align-items: flex-start;
+  }
+}
+
+.contacts-form__icon {
+  width: 30px;
+  height: 30px;
+  fill: #fff;
+  stroke: #fff;
+  margin-right: 16px;
+  opacity: 0.3;
+  transition: 0.3s;
+}
+
+.contacts-form__field {
+  flex: 1;
+}
+
+textarea.contacts-form__input {
+  padding-right: 35%;
+  line-height: 2;
+}
+
+.contacts-form__input {
+  cursor: pointer;
+  background: transparent;
+  border: 0 none;
+  width: 100%;
+  color: #ffffff;
+  font-size: 18px;
+  font-weight: bold;
+  &::placeholder {
+    color: #ffffff;
+    font-size: 18px;
+    font-weight: bold;
+  }
+
+  &:focus {
+    outline: none;
+  }
+}
+
+.contacts-form__btn {
+  background: linear-gradient(
+    90deg,
+    rgba(234, 116, 0, 1) 0%,
+    rgba(242, 148, 0, 1) 100%
+  );
+  padding: 30px 118px;
+  border: 0;
+  font-size: 18px;
+  font-weight: bold;
+  color: #ffffff;
+  text-transform: uppercase;
+  cursor: pointer;
+  transition: 0.3s;
+
+  &:hover {
+    opacity: 0.8;
+  }
+}

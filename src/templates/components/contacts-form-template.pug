@@ -1,0 +1,53 @@
+script(type="text/x-template")#contacts-form-template
+  form.contacts-form(@submit.prevent="sendMessage")
+    .contacts-form__row
+      label.contacts-form__col(
+        :class="{'error' : validation.firstError('user.name')}"
+      )
+        .section-text.contacts-form__name Введите ваше имя
+        .contacts-form__wrap
+          +icon("user", 'contacts-form__icon') 
+          input.contacts-form__input(
+            type="text" 
+            name="name" 
+            placeholder="Ковальчук Дмитрий" 
+            v-model="user.name"
+          )
+          .contacts__form-error
+            error-tooltip(
+              :errorText="validation.firstError('user.name')"
+            )
+      label.contacts-form__col(
+        :class="{'error' : validation.firstError('user.email')}"
+      )
+        .section-text.contacts-form__name Введите ваш email
+        .contacts-form__wrap
+          +icon("envelope", 'contacts-form__icon') 
+          input.contacts-form__input(
+            type="text"
+            name="email" 
+            placeholder="loftschool@study.com" 
+            v-model="user.email"
+          )
+          .contacts__form-error
+            error-tooltip(
+              :errorText="validation.firstError('user.email')"
+            )
+    .contacts-form__row
+      label.contacts-form__col(
+        :class="{'error' : validation.firstError('user.message')}"
+      )
+        .section-text.contacts-form__name Сообщение к письму
+        .contacts-form__wrap
+          +icon('message', 'contacts-form__icon') 
+          textarea(
+            name="message"
+            v-model="user.message"
+            placeholder="Требуется ваша помощь в создании сайта. Интересуют сроки и цена вопроса"
+          ).contacts-form__input
+          .contacts__form-error
+            error-tooltip(
+              :errorText="validation.firstError('user.message')"
+            )
+    .contacts-form__row
+      input(type="submit" value="отправить").contacts-form__btn

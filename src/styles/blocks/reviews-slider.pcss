@@ -6,68 +6,53 @@
   display: flex;
   will-change: transform;
   transition: transform 0.3s;
+
+  @include phones {
+    flex-direction: column;
+  }
 }
 
 .reviews-slider__item {
   position: relative;
-  padding-right: 30px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  padding-right: 7%;
   padding-left: 10%;
   width: 50%;
-
-  @include phones {
-    padding: 0;
-    width: 100%;
-  }
 
   &:last-child {
     margin-right: 0;
   }
 
-  &:before {
+  &::before {
     content: '';
     display: block;
-    width: 18%;
+    width: 16%;
+    height: 37%;
     opacity: 0.05;
-    background: svg-load('quote.svg', fill=$text-color) center center / contain
-      no-repeat;
+    background: svg-load('quote.svg', fill=$text-color) top / contain no-repeat;
     position: absolute;
     top: 0;
     left: 0;
+  }
 
-    @include phones {
-      background: none;
+  @include tablets {
+    padding-left: 5%;
+    padding-right: 5%;
+
+    &::before {
+      width: 9%;
     }
   }
-}
 
-.reviews-slider__item-text {
-  margin-bottom: 30px;
-}
+  @include phones {
+    padding: 0 2%;
+    width: 100%;
 
-.reviews-slider__user {
-  display: flex;
-  align-items: center;
-}
-
-.reviews-slider__avatar {
-  margin-right: 30px;
-  width: 74px;
-  height: 74px;
-  border-radius: 50%;
-  overflow: hidden;
-}
-
-.reviews-slider__img {
-  object-fit: cover;
-  object-position: top;
-}
-
-.reviews-slider__desc {
-  flex: 1;
-}
-
-.reviews-slider__desc-name {
-  font-size: 18px;
-  font-weight: bold;
-  margin-bottom: 16px;
+    &::before {
+      width: 12%;
+      left: -32px;
+    }
+  }
 }

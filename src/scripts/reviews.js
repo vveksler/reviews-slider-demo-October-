@@ -40,6 +40,7 @@ new Vue({
     makeArrWithRequiredImages(data) {
       return data.map((item) => {
         const requiredPic = require(`../images/content/reviews/${item.avatar}`)
+
         item.avatar = requiredPic
 
         return item

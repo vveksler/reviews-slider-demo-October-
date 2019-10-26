@@ -22,6 +22,10 @@ body {
   color: $text-color;
 }
 
+::-webkit-scrollbar {
+  display: none;
+}
+
 textarea,
 input {
   outline: none;
@@ -113,4 +117,52 @@ img {
 .section-text {
   color: rgba(#ffffff, 0.5);
   font-weight: 600;
+}
+
+.autumn-section {
+  position: relative;
+  background-image: url('../images/bg/reviews.jpg');
+  background-repeat: no-repeat;
+  background-size: cover;
+  padding: 7% 0;
+
+  &::before {
+    content: '';
+    background-image: url('../images/content/decor/leafs.png');
+    background-repeat: no-repeat;
+    background-size: 100%;
+    width: 31%;
+    height: 110%;
+    position: absolute;
+    right: 0;
+    top: -12%;
+  }
+
+  @include desktop {
+    &::before {
+      width: 31%;
+      height: 81%;
+      position: absolute;
+      right: 0;
+      top: -7%;
+    }
+  }
+
+  @include tablets {
+    padding: 12% 0;
+
+    &::before {
+      width: 60%;
+      height: 111%;
+      position: absolute;
+      right: -20%;
+      top: -11%;
+    }
+  }
+
+  @include phones {
+    &::before {
+      display: none;
+    }
+  }
 }

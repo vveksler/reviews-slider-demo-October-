@@ -4,3 +4,4 @@ if (process.env.NODE_ENV === 'development') {
 }
 
 import './scripts/reviews'
+import './scripts/contactsValidation'

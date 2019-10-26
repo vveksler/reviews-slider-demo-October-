@@ -1,17 +1,51 @@
+.reviews {
+  margin-bottom: 12%;
+
+  @include tablets {
+    margin-bottom: 16%;
+  }
+
+  @include phones {
+    margin-bottom: 40%;
+  }
+}
+
 .reviews__top {
-  display: flex;
   align-items: center;
-  margin-bottom: 15%;
+  display: flex;
+  margin-bottom: 86px;
+
+  @include phones {
+    margin-bottom: 8%;
+    flex-direction: column;
+  }
 }
 
 .reviews__content {
   padding-right: 20vw;
 
+  @include desktop {
+    padding-right: 10vw;
+  }
+
   @include tablets {
-    padding-right: 0;
+    padding: 0;
   }
 }
 
 .reviews__title {
-  margin-right: 20px;
+  margin-right: 12%;
+
+  @include desktop {
+    margin-right: 10%;
+  }
+
+  @include tablets {
+    margin-right: 8%;
+  }
+
+  @include phones {
+    margin-right: 0;
+    margin-bottom: 8%;
+  }
 }
